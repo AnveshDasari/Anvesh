@@ -1,15 +1,6 @@
-// import express  from "express"
+/import express from "express"
 const express = require('express');
-const app = express()
-const port = process.env.PORT || 4000
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
-
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
 // Create an Express app
 const app = express();
 
@@ -17,7 +8,7 @@ const app = express();
 app.use(express.json());
 
 // Set port and verify_token
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 4000;
 const verifyToken = process.env.vibecode;
 
 // Route for GET requests
@@ -35,12 +26,12 @@ app.get('/', (req, res) => {
 // Route for POST requests
 app.post('/', (req, res) => {
   const timestamp = new Date().toISOString().replace('T', ' ').slice(0, 19);
-  console.log(`\n\nWebhook received ${timestamp}\n`);
+  console.log(\n\nWebhook received ${timestamp}\n);
   console.log(JSON.stringify(req.body, null, 2));
   res.status(200).end();
 });
 
 // Start the server
 app.listen(port, () => {
-  console.log(`\nListening on port ${port}\n`);
+  console.log(\nListening on port ${port}\n);
 });
